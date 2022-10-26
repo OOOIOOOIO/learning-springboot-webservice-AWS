@@ -23,10 +23,20 @@ public class Posts {
 
     private String author;
 
+    // 생성자
     @Builder
     public Posts(String title, String content, String author) {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    /*
+        extends JpaRepository<Posts, Long>를 한 repository에 update 기능은 없네
+        그래서 만들어줘야 하는구나!
+     */
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 }
