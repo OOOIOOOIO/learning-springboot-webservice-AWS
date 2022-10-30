@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
@@ -43,6 +44,29 @@ public class PostsRepositoryTest {
 
 
 
+    }
+
+    @Test
+    void BaseEntity_등록(){
+        // given
+        LocalDateTime now = LocalDateTime.of(2022, 10, 10, 5, 10, 10);
+
+        postsRepository.save(Posts.builder()
+                .title("title")
+                .content("content")
+                .author("autt")
+                .build());
+        // when
+        List<Posts> postsList = postsRepository.findAll();
+
+        //then
+        Posts posts = postsList.get(0);
+
+        System.out.println(posts.getCreatedDate());
+        System.out.println(posts.getModifiedDate());
+
+        assertThat(posts.getCreatedDate()).isAfter(now);
+        assertThat(posts.getModifiedDate()).isAfter(now);
     }
 
 }

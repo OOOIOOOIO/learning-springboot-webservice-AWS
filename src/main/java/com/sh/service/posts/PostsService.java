@@ -20,6 +20,7 @@ public class PostsService {
     // 등록
     @Transactional
     public Long save(PostsSaveRequestDTO requestDTO){
+
         return postsRepository.save(requestDTO.toEntity()).getId();
     }
 
