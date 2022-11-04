@@ -11,5 +11,4 @@ public class LearningAwsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LearningAwsApplication.class, args);
 	}
-
 }

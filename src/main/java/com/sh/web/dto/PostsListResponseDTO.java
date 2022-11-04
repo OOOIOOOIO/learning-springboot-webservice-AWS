@@ -3,19 +3,19 @@ package com.sh.web.dto;
 import com.sh.web.domain.posts.Posts;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+
 @Getter
-public class PostsResponseDTO {
+public class PostsListResponseDTO {
     private Long id;
     private String title;
-    private String content;
     private String author;
+    private LocalDateTime modifiedDate;
 
-    // 생성자 : DTO를 받아 저장(Entiy)는 이런 패턴
-    public PostsResponseDTO(Posts entity) {
+    public PostsListResponseDTO(Posts entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
-        this.content = entity.getContent();
         this.author = entity.getAuthor();
+        this.modifiedDate = entity.getModifiedDate();
     }
-    
 }

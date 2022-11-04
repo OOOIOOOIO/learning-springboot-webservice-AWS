@@ -12,6 +12,7 @@ public class PostsSaveRequestDTO {
     private String content;
     private String author;
 
+    // 바로 값을 받는 경우 Builder 패턴
     @Builder
     public PostsSaveRequestDTO(String title, String content, String author) {
         this.title = title;

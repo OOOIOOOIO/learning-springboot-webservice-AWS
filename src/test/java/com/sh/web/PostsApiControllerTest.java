@@ -10,11 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 
+import javax.persistence.Entity;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
@@ -99,4 +97,33 @@ public class PostsApiControllerTest {
         assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
     }
+
+    @Test
+    void posts_삭제(){
+        //given
+        Posts savedPosts = postsRepository.save(Posts.builder()
+                .title("title")
+                .content("content")
+                .author("author")
+                .build());
+
+        Long deleteId = savedPosts.getId();
+        Long expectedId = savedPosts.getId();
+
+        String url = "http://localhost:" + port + "/api/v1/posts/" + deleteId;
+        HttpHeaders httpHeaders = new HttpHeaders(); // 기본 헤더
+        HttpEntity entity = new HttpEntity(httpHeaders);
+
+        //when
+        // 이건 반환값이 없을 때, exchange, execute도 마찬가지
+//        restTemplate.delete(url);
+
+        // 반환값이 있을 경우
+        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, entity, Long.class);
+
+
+        //then
+        assertThat(responseEntity.getBody()).isEqualTo(expectedId);
+    }
+
 }
