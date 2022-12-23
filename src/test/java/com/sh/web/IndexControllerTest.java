@@ -1,5 +1,6 @@
 package com.sh.web;
 
+import com.sh.SecurityComponentScanTest;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,7 @@ public class IndexControllerTest {
 //        String body = this.restTemplate.getForObject("/", String.class); // 통과
 
         //then
-        assertThat(body).contains("스프링 부트로 시작하는 웹 서비스");
-
+        assertThat(body).contains("스프링");
     }
 
 }

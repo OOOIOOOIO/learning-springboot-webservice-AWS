@@ -1,6 +1,6 @@
 package com.sh.web.dto;
 
-import com.sh.web.domain.posts.Posts;
+import com.sh.domain.posts.Posts;
 import lombok.Getter;
 
 @Getter

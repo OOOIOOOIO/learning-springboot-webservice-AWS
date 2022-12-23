@@ -1,6 +1,8 @@
 package com.sh.web.domain.posts;
 
-import org.assertj.core.api.Assertions;
+import com.sh.SecurityComponentScanTest;
+import com.sh.domain.posts.Posts;
+import com.sh.domain.posts.PostsRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

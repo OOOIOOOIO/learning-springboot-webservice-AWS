@@ -1,4 +1,4 @@
-package com.sh.web.domain;
+package com.sh.domain;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

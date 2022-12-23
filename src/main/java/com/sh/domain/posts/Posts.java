@@ -1,6 +1,6 @@
-package com.sh.web.domain.posts;
+package com.sh.domain.posts;
 
-import com.sh.web.domain.BaseTimeEntity;
+import com.sh.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
