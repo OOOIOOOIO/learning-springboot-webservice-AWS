@@ -43,3 +43,8 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+// build시 앱이름-plain.jar로 생성되는 거 막기
+jar{
+	enabled = false
+}
