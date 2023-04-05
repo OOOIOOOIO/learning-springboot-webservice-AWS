@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://seongho-rds.cpjoxjpm1vci.ap-northeast-2.rds.amazonaws.com:3306/learning_springboot_webservice
+    username: learning
+    password: learning
