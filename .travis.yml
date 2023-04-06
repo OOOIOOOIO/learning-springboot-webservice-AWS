@@ -28,7 +28,7 @@ script: "./gradlew clean build"
 # deploy 명령어가 실행되기 전에 수행된다.
 # CodeDeploy는 Jar 파일을 인식하지 못하므로 Jar+기타 설정 파일들을 모아 압축한다.
 before_deploy:
-  - zip -r learning-springboot-webservice-AWS # 햔제 위치의 모든 파일을 learning-springboot-webservice-AWS 이름으로 압축한다. 명령어의 마지막 위치는 보닌의 프로젝트 이름이여야 한다.
+  - zip -r learning-springboot-webservice-AWS learning-springboot-webservice-AWS # 햔제 위치의 모든 파일을 learning-springboot-webservice-AWS 이름으로 압축한다. 명령어의 마지막 위치는 보닌의 프로젝트 이름이여야 한다.
   - mkdir -p deploy # deploy 디렉토리를 Travis CI가 실행 중인 위치에 생성
   - mv learning-springboot-webservice-AWS.zip deploy/learning-springboot-webservice-AWS.zip # learning-springboot-webservice-AWS.zip 파일을 deploy/learning-springboot-webservice-AWS.zip 으로 이동
 
