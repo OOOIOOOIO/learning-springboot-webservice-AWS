@@ -48,4 +48,4 @@ echo "> $JAR_NAME 실행"
 
 nohup java -jar \
         -Dspring.config.location=classpath:/application.yml,/home/ubuntu/app/application-db.yml,/home/ubuntu/app/application-oauth.yml \
-        $REPOSITORY/$JAR_NAME 2>&1 &
+        $REPOSITORY/$JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
