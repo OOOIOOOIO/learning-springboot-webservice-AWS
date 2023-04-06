@@ -10,7 +10,8 @@ cp $REPOSITORY/zip/*.jar $REPOSITORY/$PROJECT_NAME.jar
 echo "> 현재 구동중인 애플리케이션 pid 확인"
 
 
-CURRENT_PID=$(ps -ef | grep learning-springboot-webservice-AWS | awk '{print $2}')
+#CURRENT_PID=$(ps -ef | grep learning-springboot-webservice-AWS | awk '{print $2}')
+CURRENT_PID=$(pgrep -f learning-springboot-webservice-AWS)
 
 echo "> 현재 구동중인 애플리케이션 pid: $CURRENT_PID"
 
