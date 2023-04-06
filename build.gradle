@@ -45,9 +45,9 @@ tasks.named('test') {
 }
 
 // gradle build 시 test 때문에 fail나는거 막기
-test.onlyIf{
-	!project.hasProperty('test')
-}
+//test.onlyIf{
+//	!project.hasProperty('test')
+//}
 
 // build시 앱이름-plain.jar로 생성되는 거 막기
 jar{
