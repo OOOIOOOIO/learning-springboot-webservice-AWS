@@ -34,17 +34,28 @@ before_deploy:
 
 deploy:
   - provider: s3
-    access_key_id: $AWS_ACCESS_KEY # Travis repo setting에 설정된 값
+    access_key_id: $AWS_ACCESS_KEY # Travis repo setting에 설정된 값(IAM 키)
     secret_access_key: $AWS_SECRET_KEY
     bucket: seongho-s3-bucket # bucket 이름
     region: ap-northeast-2
     skip_cleanup: true
     acl: private # zip 파일 접근을 private으로
-    local_dir: deploy # before_deply에서 생성한 디렉토리, 해당 위치의 파일들만 S3로 전송
+    local_dir: deploy # before_deply에서 생성한 디렉토리, 해당 위치의 파일들만 S3로 전송(IAM 키)
+    wait-until-deployed: true
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # Travis repo setting에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: seongho-s3-bucket # bucket 이름
+    key: learning-springboot-webservice-AWS.zip # 빌드 파일을 압축해서 전달
+    bundle_type: zip
+    application: learning-springboot-webservice-AWS # 웹 콘솔에 등록한 CodeDeploy 애플리케이션 이름
+    deployment_group: learning-springboot-webservice-AWS-codedeploy-group # CodeDeploy 배포 그룹 이름
+    region: ap-northeast-2
     wait-until-deployed: true
 
 # CI 실행 완료 시 작성한 이메일로 알람
 notifications:
   email:
     recipients:
-      - polite159@gmail.com
+      - dev.polite159@gmail.com
