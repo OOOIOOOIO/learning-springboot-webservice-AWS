@@ -44,7 +44,7 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-// gradle build 시 test 때문에 fail나는거 막기
+// gradle build 시 test 때문에 fail나는거 막기, 테스트를 안함
 //test.onlyIf{
 //	!project.hasProperty('test')
 //}
