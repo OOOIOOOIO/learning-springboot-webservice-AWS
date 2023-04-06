@@ -26,7 +26,8 @@ echo "> 새 애플리케이션 배포"
 
 # ls: $REPOSITORY 디렉토리 내용 출력, -tr 옵션은 newest first sorting 결과를 reverse 따라서 최신파일이 나중에 출력
 # tail: grep 결과를 받아서 마지막 행부터 1번째 줄 출력
-JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
+#JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1) # 경로까지 다 나옴
+JAR_NAME=$(ls -tr $REPOSITORY/ | grep jar | tail -n 1)
 
 echo "> JAR Name: $JAR_NAME"
 
@@ -37,7 +38,7 @@ echo "> JAR Name: $JAR_NAME"
 # -jar 하기 전에 폴더 이동
 cd $REPOSITORY
 
-echo "> $JAR_NAME에 실행권한 추가"
+echo "> $JAR_NAME 에 실행권한 추가"
 
 chmod +x $JAR_NAME
 
