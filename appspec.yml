@@ -13,7 +13,7 @@ permissions:
     group: ubuntu
 
 hooks:
-  ApplicationStart:
+  AfterInstall:
     - location: scripts/deploy.sh # EC2 경로가 아니라 배포할 프로젝트에 있는 shell script의 위치
       timeout: 60
       runas: ubuntu
